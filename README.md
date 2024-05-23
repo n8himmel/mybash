@@ -2,6 +2,16 @@
 
 The `.bashrc` file is a script that runs every time a new terminal session is started in Unix-like operating systems. It is used to configure the shell session, set up aliases, define functions, and more, making the terminal easier to use and more powerful. Below is a summary of the key sections and functionalities defined in the provided `.bashrc` file.
 
+### Installation
+
+```
+mkdir -p ~/build
+cd ~/build
+git clone https://github.com/christitustech/mybash
+cd mybash
+./setup.sh
+```
+
 ### Initial Setup and System Checks
 
 - **Environment Checks**: The script checks if it is running in an interactive mode and sets up the environment accordingly.
