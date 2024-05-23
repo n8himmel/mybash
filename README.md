@@ -7,7 +7,7 @@ The `.bashrc` file is a script that runs every time a new terminal session is st
 ```
 mkdir -p ~/build
 cd ~/build
-git clone https://github.com/christitustech/mybash
+git clone https://github.com/n8himmel/mybash
 cd mybash
 ./setup.sh
 ```
