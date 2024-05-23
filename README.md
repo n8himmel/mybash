@@ -5,6 +5,18 @@ The `.bashrc` file is a script that runs every time a new terminal session is st
 ### Installation
 
 ```
+
+sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
+sudo apt-get update
+sudo apt-get install fastfetch
+
+sudo add-apt-repository universe
+sudo apt update
+sudo apt install jpico
+sudo apt-get install joe
+
+
+
 mkdir -p ~/build
 cd ~/build
 git clone https://github.com/n8himmel/mybash
