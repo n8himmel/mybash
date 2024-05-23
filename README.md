@@ -5,7 +5,6 @@ The `.bashrc` file is a script that runs every time a new terminal session is st
 ### Installation
 
 ```
-
 sudo add-apt-repository ppa:zhangsongcui3371/fastfetch
 sudo apt-get update
 sudo apt-get install fastfetch
