@@ -136,6 +136,9 @@ linkConfig() {
     echo -e "${YELLOW}Linking new bash config file...${RC}"
     ## Make symbolic link.
     ln -svf "${GITPATH}/.bashrc" "${USER_HOME}/.bashrc"
+#    echo "ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc"
+#    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml"
+    mkdir ${USER_HOME}/.config
     ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
 }
 
