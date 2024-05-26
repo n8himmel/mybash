@@ -152,15 +152,19 @@ case $HOSTNAME in
         echo '   - exa, ls replacement '
 	sudo apt update
 	sudo apt install exa
+	sudo apt install gh
 	echo '   - starship'
         ln -svf ${GITPATH}/starship.toml.RIGEL ${USER_HOME}/.config/starship.toml
         ;;
-    'add your here')
+    'add yours here')
         ;;
     *)
         echo 'no host specific installation'
         ;;
 esac
+
+
+
 }
 
 checkEnv

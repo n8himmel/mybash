@@ -564,11 +564,11 @@ fi
 case $HOSTNAME in
     'RIGEL')
 	alias ls="exa" # ls
-	alias ll='exa -lbFa $GIT_PARAM' # list, size, type, git
+	alias ll='exa --icons -lbFa $GIT_PARAM' # list, size, type, git
 	alias llm='exa -lbGd $GIT_PARAM --sort=modified' # long list, modified date sort
 	alias la='exa -lbhHigUmuSa --time-style=long-iso $GIT_PARAM --color-scale' # all list
 	alias lx='exa -lbhHigUmuSa@ --time-style=long-iso $GIT_PARAM --color-scale' # all + extended list
-	alias lS='exa -1' # one column, just names
+	alias l1='exa -1' # one column, just names
 	alias lt='exa --tree --level=2' # tree
 	;;
     'add yours here')
@@ -585,6 +585,7 @@ esac
 bind '"\C-f":"zi\n"'
 
 # export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
+# export PATH=   # kill the windows path
 export PATH=$PATH:"$HOME/.local/bin:$HOME"
 
 # curl -sS https://starship.rs/install.sh | sh
