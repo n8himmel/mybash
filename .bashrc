@@ -550,13 +550,42 @@ lazyg() {
 }
 
 #######################################################
+# exa
+#######################################################
+# Run the exa command and capture its output
+OUTPUT=$(exa --git 2>&1)
+# Check if the output contains the specific string
+if [[ "$OUTPUT" == *"--git and --git-ignore can't be used"* ]]; then
+    GIT_PARAM=""
+else
+    GIT_PARAM="--git"
+fi
+
+case $HOSTNAME in
+    'RIGEL')
+	alias ls="exa" # ls
+	alias ll='exa -lbFa $GIT_PARAM' # list, size, type, git
+	alias llm='exa -lbGd $GIT_PARAM --sort=modified' # long list, modified date sort
+	alias la='exa -lbhHigUmuSa --time-style=long-iso $GIT_PARAM --color-scale' # all list
+	alias lx='exa -lbhHigUmuSa@ --time-style=long-iso $GIT_PARAM --color-scale' # all + extended list
+	alias lS='exa -1' # one column, just names
+	alias lt='exa --tree --level=2' # tree
+	;;
+    'add yours here')
+        ;;
+    *)
+        echo 'no host specific installation'
+        ;;
+esac
+#######################################################
 # Set the ultimate amazing command prompt
 #######################################################
 
-alias hug="hugo server -F --bind=10.0.0.97 --baseURL=http://10.0.0.97"
+# alias hug="hugo server -F --bind=10.0.0.97 --baseURL=http://10.0.0.97"
 bind '"\C-f":"zi\n"'
 
-export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
+# export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
+export PATH=$PATH:"$HOME/.local/bin:$HOME"
 
 # curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init bash)"
@@ -567,8 +596,12 @@ export WUSER="/mnt/c/Users/qayxs"
 
 if [ "${-//[!i]/}" = 'i' ]; then
   case $HOSTNAME in
-    xxx) echo -e '\e]11;darkgray\a\e]10;black\a' ;;
+    gray) echo -e '\e]11;darkgray\a\e]10;black\a' ;;
+    black | RIGEL) echo -e '\e]11;black\a\e]10;gray\a' ;;
     vm1) echo -e '\e]11;#3B0000\a\e]10;gray\a' ;;
+    red) echo -e '\e]11;#330000\a\e]10;gray\a' ;;
+    green) echo -e '\e]11;#003300\a\e]10;gray\a' ;;
+    blue) echo -e '\e]11;#000033\a\e]10;gray\a' ;;
   esac
 fi
 

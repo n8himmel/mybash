@@ -138,20 +138,26 @@ linkConfig() {
     ln -svf "${GITPATH}/.bashrc" "${USER_HOME}/.bashrc"
 #    echo "ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc"
 #    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml" # see install_host_specific
+
+echo $USER_HOME
+echo $GITPATH
+
     mkdir ${USER_HOME}/.config
     ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
+    echo ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
+    exit 9
 }
 
 install_host_specific() {
-	#!/bin/bash
-case $HOSTNAME in
     echo "host specific stuff for $HOSTNAME"
+case $HOSTNAME in
     'RIGEL')
         echo 'specific installation for RIGEL'
         echo '   - exa, ls replacement '
+	sudo apt update
 	sudo apt install exa
 	echo '   - starship'
-        ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml 
+        ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml.RIGEL 
         ;;
     'add your here')
         ;;
@@ -166,6 +172,7 @@ installDepend
 installStarship
 installZoxide
 install_additional_dependencies
+install_host_specific
 
 if linkConfig; then
     echo -e "${GREEN}Done!\nrestart your shell to see the changes.${RC}"
