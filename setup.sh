@@ -144,11 +144,7 @@ echo $GITPATH
 
     mkdir ${USER_HOME}/.config
     ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
-    echo ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
-    exit 9
-}
 
-install_host_specific() {
     echo "host specific stuff for $HOSTNAME"
 case $HOSTNAME in
     'RIGEL')
@@ -157,7 +153,7 @@ case $HOSTNAME in
 	sudo apt update
 	sudo apt install exa
 	echo '   - starship'
-        ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml.RIGEL 
+        ln -svf ${GITPATH}/starship.toml.RIGEL ${USER_HOME}/.config/starship.toml
         ;;
     'add your here')
         ;;
