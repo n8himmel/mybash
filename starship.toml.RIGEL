@@ -3,7 +3,7 @@
 
 format = """
 [](fg:#0969da bg:#0969da)\
-$username\
+$hostname\
 [](fg:#0969da bg:#eac54f)\
 $directory\
 [](fg:#eac54f bg:#e44729)\
@@ -18,6 +18,16 @@ $time\
 $all
 $character
 """
+
+
+[hostname]
+ssh_only = false
+ssh_symbol = '🌐 '
+trim_at = '.'
+style = "fg:#000000 bg:#0969da"
+format = '[$ssh_symbol$hostname]($style)'
+disabled = false
+
 
 [username]
 show_always = true

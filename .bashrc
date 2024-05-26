@@ -554,7 +554,6 @@ lazyg() {
 #######################################################
 # Run the exa command and capture its output
 OUTPUT=$(exa --git 2>&1)
-echo "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 # Check if the output contains the specific string
 if [[ "$OUTPUT" == *"--git and --git-ignore can't be used"* ]]; then
     GIT_PARAM=""
