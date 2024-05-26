@@ -137,9 +137,28 @@ linkConfig() {
     ## Make symbolic link.
     ln -svf "${GITPATH}/.bashrc" "${USER_HOME}/.bashrc"
 #    echo "ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc"
-#    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml"
+#    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml" # see install_host_specific
     mkdir ${USER_HOME}/.config
     ln -svf "${GITPATH}/starship.toml" "${USER_HOME}/.config/starship.toml"
+}
+
+install_host_specific() {
+	#!/bin/bash
+case $HOSTNAME in
+    echo "host specific stuff for $HOSTNAME"
+    'RIGEL')
+        echo 'specific installation for RIGEL'
+        echo '   - exa, ls replacement '
+	sudo apt install exa
+	echo '   - starship'
+        ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml 
+        ;;
+    'add your here')
+        ;;
+    *)
+        echo 'no host specific installation'
+        ;;
+esac
 }
 
 checkEnv

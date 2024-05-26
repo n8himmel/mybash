@@ -562,5 +562,14 @@ export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bi
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
+# Heinz:
 export WUSER="/mnt/c/Users/qayxs"
+
+if [ "${-//[!i]/}" = 'i' ]; then
+  case $HOSTNAME in
+    xxx) echo -e '\e]11;darkgray\a\e]10;black\a' ;;
+    vm1) echo -e '\e]11;#3B0000\a\e]10;gray\a' ;;
+  esac
+fi
+
 
