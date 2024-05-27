@@ -586,7 +586,9 @@ bind '"\C-f":"zi\n"'
 
 # export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bin:/.local/share/flatpak/exports/bin"
 # export PATH=   # kill the windows path
-export PATH=$PATH:"$HOME/.local/bin:$HOME"
+export PATH=$PATH:"/usr/local/bin:$HOME/.local/bin:$HOME:/usr/bin/git"
+# try my very own path
+export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/dev/apps/jdk1.8.0_291/bin:/mnt/c/dev/apps/apache-maven-3.8.2/bin:/Docker/host/bin::/snap/bin:/root/.local/bin:/root:/usr/bin/git
 
 # curl -sS https://starship.rs/install.sh | sh
 eval "$(starship init bash)"

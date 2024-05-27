@@ -58,7 +58,7 @@ style = "fg:#ffffff bg:#e44729"
 format = '[$all_status$ahead_behind ]($style)'
 disabled = false
 # ~/.config/starship.toml
-windows_starship = '/mnt/c/Users/username/scoop/apps/starship/current/starship.exe'
+# windows_starship = '/mnt/c/Progra~1/starship/bin/starship.exe'
 
 # Start languages and tools #
 
