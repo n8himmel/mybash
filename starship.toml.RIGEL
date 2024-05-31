@@ -24,7 +24,7 @@ $character
 ssh_only = false
 ssh_symbol = '🌐 '
 trim_at = '.'
-style = "fg:#000000 bg:#0969da"
+style = "fg:#f0ff00 bg:#0969da"
 format = '[$ssh_symbol$hostname]($style)'
 disabled = false
 

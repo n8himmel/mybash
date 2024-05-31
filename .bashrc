@@ -570,6 +570,7 @@ case $HOSTNAME in
 	alias lx='exa -lbhHigUmuSa@ --time-style=long-iso $GIT_PARAM --color-scale' # all + extended list
 	alias l1='exa -1' # one column, just names
 	alias lt='exa --tree --level=2' # tree
+	alias g='cd ~/g && ll -d */'
 	;;
     'add yours here')
         ;;
@@ -609,3 +610,5 @@ if [ "${-//[!i]/}" = 'i' ]; then
 fi
 
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

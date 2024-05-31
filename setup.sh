@@ -9,6 +9,50 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+install_deb() {
+
+# Example usage
+# install_deb "https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb"
+
+    # Check if URL parameter is provided
+    if [ -z "$1" ]; then
+        echo "Usage: install_deb <url>"
+        return 1
+    fi
+
+    # Extract filename from URL
+    URL=$1
+    FILE_NAME=$(basename "$URL")
+
+    # Download the .deb file
+    wget $URL -O $FILE_NAME
+
+    # Check if download was successful
+    if [ $? -ne 0 ]; then
+        echo "Download failed"
+        return 1
+    fi
+
+    # Make the file executable
+    chmod +x $FILE_NAME
+
+    # Install the .deb file using apt
+    sudo apt install ./$FILE_NAME
+
+    # Check if installation was successful
+    if [ $? -ne 0 ]; then
+        echo "Installation failed"
+        return 1
+    fi
+
+    # Clean up the downloaded .deb file
+    rm $FILE_NAME
+
+    echo "Installation completed successfully"
+}
+
+
+
 checkEnv() {
     ## Check for requirements.
     REQUIREMENTS=('curl' 'groups' 'sudo')
@@ -155,6 +199,7 @@ case $HOSTNAME in
 	sudo apt install gh
 	echo '   - starship'
         ln -svf ${GITPATH}/starship.toml.RIGEL ${USER_HOME}/.config/starship.toml
+        install_deb "https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb"
         ;;
     'add yours here')
         ;;
@@ -173,6 +218,13 @@ installStarship
 installZoxide
 install_additional_dependencies
 install_host_specific
+
+echo "@todo: move this to .bashrc"
+echo "-------------------------------------------------------"
+echo "delta .......................... diff tool "
+echo "-------------------------------------------------------"
+
+
 
 if linkConfig; then
     echo -e "${GREEN}Done!\nrestart your shell to see the changes.${RC}"
