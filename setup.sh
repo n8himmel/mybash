@@ -43,6 +43,7 @@ install_deb() {
     if [ $? -ne 0 ]; then
         echo "Installation failed"
         return 1
+
     fi
 
     # Clean up the downloaded .deb file
@@ -162,6 +163,7 @@ installZoxide() {
 install_additional_dependencies() {
    sudo apt update
    sudo apt install -y trash-cli bat meld joe
+   sudo apt-get install jq
 }
 
 linkConfig() {
@@ -180,8 +182,7 @@ linkConfig() {
     echo -e "${YELLOW}Linking new bash config file...${RC}"
     ## Make symbolic link.
     ln -svf "${GITPATH}/.bashrc" "${USER_HOME}/.bashrc"
-#    echo "ln -svf ${GITPATH}/.bashrc ${USER_HOME}/.bashrc"
-#    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml" # see install_host_specific
+    echo "ln -svf ${GITPATH}/starship.toml ${USER_HOME}/.config/starship.toml" # see install_host_specific
 
 echo $USER_HOME
 echo $GITPATH
@@ -222,6 +223,7 @@ install_host_specific
 echo "@todo: move this to .bashrc"
 echo "-------------------------------------------------------"
 echo "delta .......................... diff tool "
+echo "gh ............................. github CLI "
 echo "-------------------------------------------------------"
 
 

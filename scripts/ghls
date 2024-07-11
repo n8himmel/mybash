@@ -1,0 +1,2 @@
+#!/bin/sh
+gh repo list anet22 -l999
