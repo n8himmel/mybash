@@ -1,0 +1,9 @@
+ABANDONED-DEL-REPO.md
+README.md
+scripts/
+setup.sh*
+setup.sh.orig*
+starship.toml
+starship.toml.primer
+starship.toml.RIGEL
+starship.toml.titus
